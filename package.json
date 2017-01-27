@@ -1,0 +1,19 @@
+{
+  "name": "angular-weather",
+  "version": "1.0.0",
+  "description": "Angular app as part of an assignment for a company.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CameronCT/Angular-Weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CameronCT/Angular-Weather/issues"
+  },
+  "homepage": "https://github.com/CameronCT/Angular-Weather#readme"
+}
