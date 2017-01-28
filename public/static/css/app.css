@@ -17,6 +17,10 @@ main {
   background: white;
   background: rgba(255, 255, 255, 0.8); }
 
+@media(max-width: 576px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0; } }
 .card-weather {
   border-color: #2B3A42;
   border-radius: 0;
