@@ -22,41 +22,41 @@
 				<div class="f5">{{ days.list[0].temp.day | number : 0 }}°c</div>
 				<small>{{ days.list[0].temp.min | number : 0 }}°c to {{ days.list[0].temp.max | number : 0 }}°c</small>
 			</div>
-			<div class="row mt-3">
-				<div class="col-12 col-lg-4">
+			<div class="row pt-3">
+				<div class="col-12 col-md-6 col-lg pb-3">
 					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
 								<i class="text-center wi wi-barometer fa-2x"></i>
 							</h4>
 							<p class="card-text text-center">
-								<strong class="f2">{{ days.list[0].humidity }}</strong>
+								<strong class="f1p5">{{ days.list[0].humidity }}</strong>
 								<small>%</small>
 							</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-lg-4">
+				<div class="col-12 col-md-6 col-lg pb-3">
 					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
 								<i class="text-center wi wi-humidity fa-2x"></i>
 							</h4>
 							<p class="card-text text-center">
-								<strong class="f2">{{ days.list[0].pressure }}</strong>
+								<strong class="f1p5">{{ days.list[0].pressure }}</strong>
 								<small>kPa</small>
 							</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-lg-4">
+				<div class="col-12 col-md-12 col-lg pb-3">
 					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
 								<i class="text-center wi wi-strong-wind fa-2x"></i>
 							</h4>
 							<p class="card-text text-center">
-								<strong class="f2">{{ days.list[0].speed }}</strong>
+								<strong class="f1p5">{{ days.list[0].speed }}</strong>
 								<small>km/h</small>
 							</p>
 						</div>
@@ -68,8 +68,8 @@
 
 	<!-- Weather Today -->
 	<div class="bg-weather text-white py-2 px-4">Today</div>
-	<div class="row my-5">
-    	<div class="col-6 col-md-3">
+	<div class="row pt-4">
+    	<div class="col-6 col-md-3 pb-4">
     		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Sunrise</h5>
@@ -84,7 +84,7 @@
 			</div>
     	</div>
 
-    	<div class="col-6 col-md-3">
+    	<div class="col-6 col-md-3 pb-4">
     		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Day</h5>
@@ -99,7 +99,7 @@
 			</div>
     	</div>
 
-    	<div class="col-6 col-md-3">
+    	<div class="col-6 col-md-3 pb-4">
     		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Evening</h5>
@@ -114,7 +114,7 @@
 			</div>
     	</div>
 
-    	<div class="col-6 col-md-3">
+    	<div class="col-6 col-md-3 pb-4">
     		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Night</h5>
@@ -130,28 +130,47 @@
     	</div>
 	</div>
 
-	<!-- Weather Next 7 Days -->
+	<!-- Weather Next 7 Days & Pagination -->
 	<div class="bg-weather text-white py-2 px-4">Week</div>
-    <div class="row py-5">
-        <div class="col-6 col-md-4 col-lg-2" ng-repeat="day in days.list" ng-if="!$first">
-            <div class="card card-weather">
-                <div class="card-block">
-                    <h5 class="text-center pb-2">{{ day.dt * 1000 | date:'EEEE'}}</h5>
-                    <!-- <h5 class="text-center pb-2">Sunday</h5> -->
-                    <div class="text-center my-4" ng-switch="day.weather[0].main">
-                        <i ng-switch-when="Clouds" class="wi wi-day-cloudy fa-3x"></i>
-                        <i ng-switch-when="Snow" class="wi wi-day-snow fa-3x"></i>
-                        <i ng-switch-when="Rain" class="wi wi-day-showers fa-3x"></i>
-                        <i ng-switch-default class="wi wi-day-sunny fa-3x"></i>
-                    </div>
-                    <p class="card-text text-center">
-                        <strong class="f2">{{ day.temp.morn | number : 0 }}</strong>
-                        <small>°c</small>
-                        <div class="small text-center">{{ day.temp.min | number : 0 }}°c to {{ day.temp.max | number : 0 }}°c</div>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="forecast">
+	    <div class="row pt-4">
+	        <div class="col pb-4" ng-repeat="day in zData">
+	            <div class="card card-weather">
+	                <div class="card-block">
+	                    <h5 class="text-center pb-2">{{ day.dt * 1000 | date:'MMM d'}}</h5>
+	                    <!-- <h5 class="text-center pb-2">Sunday</h5> -->
+	                    <div class="text-center my-4" ng-switch="day.weather[0].main">
+	                        <i ng-switch-when="Clouds" class="wi wi-day-cloudy fa-3x"></i>
+	                        <i ng-switch-when="Snow" class="wi wi-day-snow fa-3x"></i>
+	                        <i ng-switch-when="Rain" class="wi wi-day-showers fa-3x"></i>
+	                        <i ng-switch-default class="wi wi-day-sunny fa-3x"></i>
+	                    </div>
+	                    <p class="card-text text-center">
+	                        <strong class="f1p75">{{ day.temp.morn | number : 0 }}</strong>
+	                        <small>°c</small>
+	                        <div class="row">
+	                        	<div class="col-6 text-left">
+	                        		<small>Min:</small>
+	                        	</div>
 
+	                        	<div class="col-6 text-right">
+	                        		<small>{{ day.temp.min | number : 0 }}°c</small>
+	                        	</div>
+	                        </div>
+	                        <div class="row">
+	                        	<div class="col-6 text-left">
+	                        		<small>High:</small>
+	                        	</div>
+
+	                        	<div class="col-6 text-right">
+	                        		<small>{{ day.temp.max | number : 0 }}°c</small>
+	                        	</div>
+	                        </div>
+	                    </p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="pb-5" uib-pager total-items="data.length" items-per-page="limit" ng-model="page"></div>
+	</div>
 </div>
