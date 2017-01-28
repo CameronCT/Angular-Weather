@@ -1,6 +1,6 @@
 var app = angular.module('WeatherApp', ['ngRoute', 'ngAnimate', 'toastr']);
 
-app.config(function ($routeProvider, toastrConfig) {
+app.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'Home', 
@@ -16,18 +16,6 @@ app.config(function ($routeProvider, toastrConfig) {
         .otherwise({
             redirectTo: '/'
         });
-
-    angular.extend(toastrConfig, {
-        timeOut: 99999999,
-        autoDismiss: false,
-        containerId: 'toast-container',
-        maxOpened: 0,    
-        newestOnTop: true,
-        positionClass: 'toast-top-right',
-        preventDuplicates: false,
-        preventOpenDuplicates: false,
-        target: 'body'
-    });
 });
 
 app.run(['$http', '$rootScope', function($http, $rootScope) {
