@@ -1,4 +1,4 @@
-app.controller('City', ['$rootScope', '$scope', '$route', '$routeParams', '$http', '$location', function($rootScope, $scope, $route, $routeParams, $http, $location) {
+app.controller('City', ['$rootScope', '$scope', '$route', '$routeParams', '$http', '$location', 'toastr', function($rootScope, $scope, $route, $routeParams, $http, $location, toastr) {
 
     $scope.getCity = function() {
         Query = $routeParams.name;
@@ -9,7 +9,7 @@ app.controller('City', ['$rootScope', '$scope', '$route', '$routeParams', '$http
         	},
             function(result) {
                 $location.url('/');
-                $rootScope.error        = 'The city you have entered could not be found, please try again!';
+                toastr.error('The city you have entered could not be found, please try again!');
             }
         );
     };
