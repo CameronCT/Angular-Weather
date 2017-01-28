@@ -1,6 +1,12 @@
 <div class="container">
 	<!-- Weather Now (using day as value) -->
-	<div class="bg-inverse text-white py-2 mt-4 px-4">Current</div>
+    <h3 class="my-2 mt-3">
+        {{ days.city.name }}
+        <span class="pull-right">
+            {{ days.city.country }}
+        </span>
+    </h3>
+	<div class="bg-weather text-white py-2 mt-4 px-4">Current</div>
 	<div class="row mt-3 mb-5">
 		<div class="col-5">
 			<div class="text-center mt-5" ng-switch="days.list[0].weather[0].main">
@@ -9,16 +15,16 @@
 				<i ng-switch-when="Rain" class="wi wi-day-showers f10"></i>
 				<i ng-switch-default class="wi wi-day-sunny f10"></i>
 			</div>
-			<div class="h2 text-center mt-2">{{ days.list[0].weather[0].main }}</div>
+			<div class="h2 text-center mt-4">{{ days.list[0].weather[0].main }}</div>
 		</div>
 		<div class="col-7">
 			<div class="text-center">
-				<div class="f5">{{ days.list[0].temp.day }}°c</div>
-				<small>{{ days.list[0].temp.min }}°c to {{ days.list[0].temp.max }}°c</small>
+				<div class="f5">{{ days.list[0].temp.day | number : 0 }}°c</div>
+				<small>{{ days.list[0].temp.min | number : 0 }}°c to {{ days.list[0].temp.max | number : 0 }}°c</small>
 			</div>
 			<div class="row mt-3">
 				<div class="col-12 col-md-4">
-					<div class="card">
+					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
 								<i class="text-center wi wi-barometer fa-2x"></i>
@@ -31,7 +37,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-md-4">
-					<div class="card">
+					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
 								<i class="text-center wi wi-humidity fa-2x"></i>
@@ -44,7 +50,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-md-4">
-					<div class="card">
+					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
 								<i class="text-center wi wi-strong-wind fa-2x"></i>
@@ -61,17 +67,17 @@
 	</div>
 
 	<!-- Weather Today -->
-	<div class="bg-inverse text-white py-2 px-4">Today</div>
+	<div class="bg-weather text-white py-2 px-4">Today</div>
 	<div class="row my-5">
     	<div class="col-6 col-md-3">
-    		<div class="card">
+    		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Sunrise</h5>
 					<h4 class="card-title text-center">
 						<i class="text-center wi wi-sunrise fa-2x"></i>
 					</h4>
 					<p class="card-text text-center">
-						<strong class="f2">{{ days.list[0].temp.morn }}</strong>
+						<strong class="f2">{{ days.list[0].temp.morn | number : 0 }}</strong>
 						<small>°c</small>
 					</p>
 				</div>
@@ -79,14 +85,14 @@
     	</div>
 
     	<div class="col-6 col-md-3">
-    		<div class="card">
+    		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Day</h5>
 					<h4 class="card-title text-center">
 						<i class="text-center wi wi-solar-eclipse fa-2x"></i>
 					</h4>
 					<p class="card-text text-center">
-						<strong class="f2">{{ days.list[0].temp.day }}</strong>
+						<strong class="f2">{{ days.list[0].temp.day | number : 0 }}</strong>
 						<small>°c</small>
 					</p>
 				</div>
@@ -94,14 +100,14 @@
     	</div>
 
     	<div class="col-6 col-md-3">
-    		<div class="card">
+    		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Evening</h5>
 					<h4 class="card-title text-center">
 						<i class="text-center wi wi-sunset fa-2x"></i>
 					</h4>
 					<p class="card-text text-center">
-						<strong class="f2">{{ days.list[0].temp.eve }}</strong>
+						<strong class="f2">{{ days.list[0].temp.eve | number : 0 }}</strong>
 						<small>°c</small>
 					</p>
 				</div>
@@ -109,14 +115,14 @@
     	</div>
 
     	<div class="col-6 col-md-3">
-    		<div class="card">
+    		<div class="card card-weather">
 				<div class="card-block">
 					<h5 class="text-center pb-2">Night</h5>
 					<h4 class="card-title text-center">
 						<i class="text-center wi wi-moonrise fa-2x"></i>
 					</h4>
 					<p class="card-text text-center">
-						<strong class="f2">{{ days.list[0].temp.night }}</strong>
+						<strong class="f2">{{ days.list[0].temp.night | number : 0 }}</strong>
 						<small>°c</small>
 					</p>
 				</div>
@@ -125,10 +131,10 @@
 	</div>
 
 	<!-- Weather Next 7 Days -->
-	<div class="bg-inverse text-white py-2 px-4">Week</div>
+	<div class="bg-weather text-white py-2 px-4">Week</div>
     <div class="row my-5">
         <div class="col-6 col-md-2" ng-repeat="day in days.list" ng-if="!$first">
-            <div class="card">
+            <div class="card card-weather">
                 <div class="card-block">
                     <h5 class="text-center pb-2">{{ day.dt * 1000 | date:'EEEE'}}</h5>
                     <!-- <h5 class="text-center pb-2">Sunday</h5> -->
@@ -139,18 +145,13 @@
                         <i ng-switch-default class="wi wi-day-sunny fa-3x"></i>
                     </div>
                     <p class="card-text text-center">
-                        <strong class="f2">{{ day.temp.morn }}</strong>
+                        <strong class="f2">{{ day.temp.morn | number : 0 }}</strong>
                         <small>°c</small>
-                        <small>{{ day.temp.min }}°c to {{ day.temp.max }}°c</small>
+                        <div class="small text-center">{{ day.temp.min | number : 0 }}°c to {{ day.temp.max | number : 0 }}°c</div>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-	<!-- Next 7 days -->
-	<div class="row">
-    <div ng-repeat="day in pagCities">
-    	<h5>{{ day.temp.day }}</h5>
-    </div>
 </div>

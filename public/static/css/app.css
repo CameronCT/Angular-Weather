@@ -5,7 +5,7 @@ html {
 
 body {
   height: 100%;
-  background-image: url("../img/background.jpg");
+  background: url("../img/background.jpg") #2B3A42 no-repeat;
   background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover; }
@@ -16,6 +16,12 @@ main {
   padding-top: 75px;
   background: white;
   background: rgba(255, 255, 255, 0.8); }
+
+.card-weather {
+  border-color: #2B3A42;
+  border-radius: 0;
+  -o-border-radius: 0;
+  -moz-border-radius: 0; }
 
 .navbar {
   padding: 1rem 2rem; }
