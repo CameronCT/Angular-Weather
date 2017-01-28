@@ -1,6 +1,6 @@
 <div class="container">
 	<!-- Weather Now (using day as value) -->
-	<div class="bg-inverse text-white py-2 mt-4 px-4 my-">Current</div>
+	<div class="bg-inverse text-white py-2 mt-4 px-4">Current</div>
 	<div class="row mt-3 mb-5">
 		<div class="col-5">
 			<div class="text-center mt-5" ng-switch="days.list[0].weather[0].main">
@@ -61,7 +61,7 @@
 	</div>
 
 	<!-- Weather Today -->
-	<div class="bg-inverse text-white py-1 px-4 my-1">Today</div>
+	<div class="bg-inverse text-white py-2 px-4">Today</div>
 	<div class="row my-5">
     	<div class="col-6 col-md-3">
     		<div class="card">
@@ -125,9 +125,28 @@
 	</div>
 
 	<!-- Weather Next 7 Days -->
-	<div class="bg-inverse text-white py-1 px-4 my-1">Week (5 days)</div>
-
-	<pagination ng-model="currentPage" total-items="days.list.length" max-size="maxSize" boundary-links="true"></pagination>
+	<div class="bg-inverse text-white py-2 px-4">Week</div>
+    <div class="row my-5">
+        <div class="col-6 col-md-2" ng-repeat="day in days.list" ng-if="!$first">
+            <div class="card">
+                <div class="card-block">
+                    <h5 class="text-center pb-2">{{ day.dt * 1000 | date:'EEEE'}}</h5>
+                    <!-- <h5 class="text-center pb-2">Sunday</h5> -->
+                    <div class="text-center my-4" ng-switch="day.weather[0].main">
+                        <i ng-switch-when="Clouds" class="wi wi-day-cloudy fa-3x"></i>
+                        <i ng-switch-when="Snow" class="wi wi-day-snow fa-3x"></i>
+                        <i ng-switch-when="Rain" class="wi wi-day-showers fa-3x"></i>
+                        <i ng-switch-default class="wi wi-day-sunny fa-3x"></i>
+                    </div>
+                    <p class="card-text text-center">
+                        <strong class="f2">{{ day.temp.morn }}</strong>
+                        <small>°c</small>
+                        <small>{{ day.temp.min }}°c to {{ day.temp.max }}°c</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<!-- Next 7 days -->
 	<div class="row">
