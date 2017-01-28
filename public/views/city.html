@@ -23,7 +23,7 @@
 				<small>{{ days.list[0].temp.min | number : 0 }}°c to {{ days.list[0].temp.max | number : 0 }}°c</small>
 			</div>
 			<div class="row mt-3">
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-lg-4">
 					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
@@ -36,7 +36,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-lg-4">
 					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
@@ -49,7 +49,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-lg-4">
 					<div class="card card-weather">
 						<div class="card-block">
 							<h4 class="card-title text-center">
@@ -132,8 +132,8 @@
 
 	<!-- Weather Next 7 Days -->
 	<div class="bg-weather text-white py-2 px-4">Week</div>
-    <div class="row my-5">
-        <div class="col-6 col-md-2" ng-repeat="day in days.list" ng-if="!$first">
+    <div class="row py-5">
+        <div class="col-6 col-md-4 col-lg-2" ng-repeat="day in days.list" ng-if="!$first">
             <div class="card card-weather">
                 <div class="card-block">
                     <h5 class="text-center pb-2">{{ day.dt * 1000 | date:'EEEE'}}</h5>
