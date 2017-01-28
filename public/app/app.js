@@ -12,7 +12,7 @@ app.config(function ($routeProvider) {
 });
 app.run(['$http', '$rootScope', function($http, $rootScope) {
     $rootScope.config = {
-        'name':       'Weather App',
+        'name':       'Angular Weather',
         'year':       '2017',
         'api':        'da2bde4d69fd8ce1c5159125e2152faf', 
     };
