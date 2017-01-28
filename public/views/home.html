@@ -4,9 +4,9 @@
 	</h4>
     <div class="row my-5 py-5">
     	<div class="col-12">
-	    	<form ng-submit="onSubmit()">
+	    	<form name="searchCity" ng-submit="onSubmit(searchCity.$valid)">
 	    		<div class="input-group">
-		    		<input type="text" placeholder="Kamloops, BC" class="form-control" ng-model="city" focus />
+		    		<input type="text" placeholder="Kamloops, BC" class="form-control" ng-model="city" ng-minlength="3" required focus />
 		    		<input type="submit" class="btn btn-info input-group-addon" value="Search" />
 	    		</div>
 	    	</form>
