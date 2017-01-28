@@ -6,6 +6,9 @@ app.config(function ($routeProvider) {
             controller: 'Home', 
             templateUrl: 'views/home.html'
         })
+        .when('/about', {
+            templateUrl: 'views/about.html'
+        })
         .when('/city/:name', {
             controller: 'City', 
             templateUrl: 'views/city.html'
