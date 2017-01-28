@@ -1,4 +1,4 @@
-var app = angular.module('WeatherApp', ['ngRoute', 'ngAnimate', 'toastr']);
+var app = angular.module('WeatherApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'toastr']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -18,7 +18,7 @@ app.config(function ($routeProvider) {
         });
 });
 
-app.run(['$http', '$rootScope', function($http, $rootScope) {
+app.run(['$rootScope', function($rootScope) {
     $rootScope.config = {
         'name':       'Angular Weather',
         'year':       '2017',
