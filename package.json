@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CameronCT/Angular-Weather/issues"
   },
-  "homepage": "https://github.com/CameronCT/Angular-Weather#readme"
+  "homepage": "https://github.com/CameronCT/Angular-Weather#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
