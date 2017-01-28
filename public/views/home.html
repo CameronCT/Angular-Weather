@@ -1,3 +1,12 @@
 <div class="container">
-    <h1>Content</h1>
+    <div class="row">
+    	<label for="city">Search City</label>
+    	<input type="text" name="city" placeholder="London" class="form-control" ng-model="searchCity" ng-change="getCity(text)" focus />
+    </div>
+    <div ng-repeat="day in days.list">
+    	<h5>{{ day.temp.day }}</h5>
+    </div>
+    <div ng-show="days.cod == 502">
+    	No results found
+    </div>
 </div>
